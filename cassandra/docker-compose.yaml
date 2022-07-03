@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  cassandra:
+    image: cassandra:4
+    restart: always
+    ports:
+      - 9042:9042
+    volumes:
+      - ./db-data:/var/lib/cassandra

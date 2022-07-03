@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  riak-kv:
+    image: basho/riak-kv:ubuntu-2.2.3
+    restart: always
+    ports:
+      - 8087:8087
+      - 8098:8098
+    volumes:
+      - ./schemas:/etc/riak/schemas
+    environment:
+      - CLUSTER_NAME=riakkv
+    labels:
+      - "com.basho.riak.cluster.name=riakkv"
+
+volumes:
+  schemas:
+    external: false
